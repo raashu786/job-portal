@@ -1,5 +1,23 @@
 const fields=[
-    {label:"Job Title",placeholder:"Enter Job Title", options:['Designer', 'Developer', 'Product Manager', 'Marketing Specialist', 'Data Analyst', 'Sales Executive', 'Content Writer', 'Customer Support']},
+    // {label:"Job Title",placeholder:"Enter Job Title", options:['Designer', 'Developer', 'Product Manager', 'Marketing Specialist', 'Data Analyst', 'Sales Executive', 'Content Writer', 'Customer Support', ]},
+    {label:"Job Title",placeholder:"Enter Job Title", options: [
+      'Painter',
+      'Housekeeper',
+      'Cook',
+      'Cleaner',
+      'Gardener',
+      'Security Guard',
+      'Delivery Boy',
+      'Construction Laborer',
+      'Warehouse Worker',
+      'Driver',
+      'Dishwasher',
+      'Sweeper',
+      'Helper',
+      'Plumber Assistant',
+      'Electrician Assistant'
+    ]},
+
     {label:"Company",placeholder:"Enter Company Name", options:['Google', 'Microsoft', 'Meta', 'Netflix', 'Adobe', 'Facebook', 'Amazon', 'Apple', 'Spotify']},
     {label:"Experience",placeholder:"Enter Experience Level", options:['Entry Level', 'Intermediate', 'Expert']},
     {label:"Job Type",placeholder:"Enter Job Type", options:['Full Time', 'Part Time', 'Contract', 'Freelance', 'Internship']},

@@ -16,7 +16,7 @@ const PostedJobPages = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getJobPostedBy(user.id)
+    getJobPostedBy(user.profileId)
       .then((res) => {
         setJobList(res);
         if (res && res.length > 0 && Number(id) == 0) navigate(`/posted-job/${res[0].id}`);

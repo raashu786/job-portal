@@ -131,10 +131,6 @@ const ResetPassword = (Props:any) => {
       setLoading(false);
     }
   };
-  
-
-  
-
   const CountdownTimer = ({ seconds }: { seconds: number }) => (
     <Group gap="xs">
       <IconClock size={16} />

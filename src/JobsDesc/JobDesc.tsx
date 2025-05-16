@@ -133,7 +133,7 @@ const JobDesc = (props: any) => {
     {props?.skillsRequired?.map((item: any, index: number) => (
       <div
         key={index}
-        className="bg-bright-sun-100 text-bright-sun-800 text-[10px] xs:text-xs sm:text-sm px-2 py-1 font-medium"
+        className="bg-mine-shaft-600 text-bright-sun-800 text-[10px] xs:text-xs sm:text-sm px-2 py-1 font-medium"
       >
         {item}
       </div>

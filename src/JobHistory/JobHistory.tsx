@@ -33,7 +33,7 @@ const JobHistory = () => {
       setShowList(jobs.filter((job: any) =>
         job.applicants?.some(
           (applicant: any) =>
-            applicant.applicantId === user.id && applicant.applicationStatus === tab
+            applicant.applicantId === profile.id && applicant.applicationStatus === tab
         )
       ));
     }

@@ -7,6 +7,8 @@ import '@mantine/carousel/styles.css';
 import '@mantine/tiptap/styles.css';
 import '@mantine/dates/styles.css';
 import '@mantine/notifications/styles.css';
+import 'leaflet/dist/leaflet.css';
+
 import { createTheme, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import Store from './Store';

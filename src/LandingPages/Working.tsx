@@ -33,7 +33,11 @@ const Working = () => {
               work.map((item, index) => (
                 <div key={index} className='flex items-center gap-4'>
                   <div className='bg-bright-sun-400 p-3 xs-mx:p-2'>
-                    <img className='h-12 w-12 xs-mx:h-8 xs-mx:w-8' src={`/Working/${item.name}.png`} alt={item.name} />
+                  <img
+                       className='h-12 w-12 xs-mx:h-8 xs-mx:w-8'
+                       src={`/Working/${item.name.split(" ")[0]}.png`}
+                       alt={item.name}
+                  />
                   </div>
                   <div>
                     <div className='text-mine-shaft-200 text-xl xs-mx:text-md font-semibold'>{item.name}</div>

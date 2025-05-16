@@ -18,6 +18,8 @@ import Footer from '../Footer/Footer'
 import { useSelector } from 'react-redux'
 import { ProtectedRoutes } from '../Services/ProtectedRoutes'
 import { PublicRoutes } from './PublicRotes'
+import Unauthorized from '../Header/Unauthorized'
+import NotFound from '../Header/NotFound'
 
 const AppRoutes = () => {
     const user=useSelector((state:any)=>state.user)
@@ -27,24 +29,32 @@ const AppRoutes = () => {
     <Divider size="xs" mx="md" />
    <Routes>
      <Route path="/" element ={<HomePages/>}> </Route>
-     <Route path="/find-jobs" element ={<FindJobs/>}> </Route>
-     <Route path="/find-talent" element ={<FindTalentsPages/>}> </Route>
-     <Route path="/jobs/:id" element ={<JobDescPages/>}> </Route>
-     <Route path="/apply-job/:id" element ={<ApplyJobPages/>}> </Route>
-     <Route path="/company/:name" element ={<CompanyPage/>}> </Route>
-     <Route path="/post-job/:id" element ={<PostJobPages/>}> </Route>
-     <Route path="/posted-job/:id" element ={<PostedJobPages/>}> </Route>
+     <Route path="/find-jobs" element ={<ProtectedRoutes allowedRoles={['APPLICANT']}><FindJobs/></ProtectedRoutes>}> </Route>
 
-     {/* <Route path="/post-job/:id" element ={<ProtectedRoutes allowedRoles={['ACCOUNT']}><PostJobPages/></ProtectedRoutes>}> </Route>
-     <Route path="/posted-job/:id" element ={<ProtectedRoutes allowedRoles={['ACCOUNT']}><PostedJobPages/></ProtectedRoutes>}> </Route> */}
+     <Route path="/jobs/:id" element ={<ProtectedRoutes allowedRoles={['APPLICANT']}><JobDescPages/></ProtectedRoutes>}> </Route>
 
-     <Route path="/talent-profile/:id" element ={<TalentProfilePage/>}> </Route>
-     {/* <Route path="/job-history" element ={<ProtectedRoutes allowedRoles={['ACCOUNT']}><JobHistoryPages/></ProtectedRoutes>}> </Route> */}
-     <Route path="/job-history" element ={<JobHistoryPages/>}> </Route>
+     <Route path="/apply-job/:id" element ={<ProtectedRoutes allowedRoles={['APPLICANT']}><ApplyJobPages/></ProtectedRoutes>}> </Route>
+
+     <Route path="/company/:name" element ={<ProtectedRoutes allowedRoles={['APPLICANT']}><CompanyPage/></ProtectedRoutes>}> </Route>
+
+     <Route path="/job-history" element ={<ProtectedRoutes allowedRoles={['APPLICANT']}><JobHistoryPages/></ProtectedRoutes>}> </Route>
+
+     <Route path="/find-talent" element ={<ProtectedRoutes allowedRoles={['EMPLOYER']}><FindTalentsPages/></ProtectedRoutes>}> </Route>
+
+     <Route path="/talent-profile/:id" element ={<ProtectedRoutes allowedRoles={['EMPLOYER']}><TalentProfilePage/></ProtectedRoutes>}> </Route>
+
+     <Route path="/post-job/:id" element ={<ProtectedRoutes allowedRoles={['EMPLOYER']}><PostJobPages/></ProtectedRoutes>}> </Route>
+
+     <Route path="/posted-job/:id" element ={<ProtectedRoutes allowedRoles={['EMPLOYER']}><PostedJobPages/></ProtectedRoutes>}> </Route>
+
+  
+     
+ 
      <Route path="/signup" element ={<PublicRoutes><SignUpPages /></PublicRoutes>}> </Route>
-     {/* <Route path="/signup" element ={<SignUpPages />}> </Route> */}
      <Route path="/login" element={<PublicRoutes><SignUpPages /></PublicRoutes>}></Route>
      <Route path="/profile" element={<ProfilePages />} />
+     <Route path="/unauthorized" element={<Unauthorized />} />
+     <Route path="*" element={<NotFound />} />
     
    </Routes>
    <Footer/>

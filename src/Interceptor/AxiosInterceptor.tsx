@@ -1,8 +1,6 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
-import { navigateToLogin } from "../Services/AuthService";
-import { Navigate } from "react-router-dom";
 const axiosInstance = axios.create({
-   // baseURL: 'http://localhost:8080',
+   //baseURL: 'http://localhost:8080',
     baseURL: 'https://job-portal-backend-smwt.onrender.com',
   });
 

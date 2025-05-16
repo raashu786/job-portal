@@ -415,7 +415,7 @@ const SignUp = () => {
             withAsterisk
           >
              <Group mt="xs">
-                    <Radio className='py-3 px-5 xs-mx:px-2 xs-mx:p-2 border border-mine-shaft-800 rounded-lg has-[:checked]:border-bright-sun-400 has-[:checked]:bg-bright-sun-400/5 hover:bg-mine-shaft-900'  value="ACCOUNT" 
+                    <Radio className='py-3 px-5 xs-mx:px-2 xs-mx:p-2 border border-mine-shaft-800 rounded-lg has-[:checked]:border-bright-sun-400 has-[:checked]:bg-bright-sun-400/5 hover:bg-mine-shaft-900'  value="APPLICANT" 
                     label="Applicant" 
                  
                     />

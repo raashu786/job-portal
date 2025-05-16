@@ -3,7 +3,7 @@ import Sort from '../FindJobs/Sort';
 import TalentsCards from './TalentsCards';
 import { getAllProfile } from '../Services/ProfileService';
 import { useDispatch, useSelector } from 'react-redux';
-import { Card, Text, Pagination, Skeleton, Box } from '@mantine/core';
+import { Card, Text, Pagination, Skeleton, Box, Divider } from '@mantine/core';
 import { IconUserOff } from '@tabler/icons-react';
 import { resetFilter } from '../Slices/FilterSlice';
 import { resetSort } from '../Slices/SortSlice';
@@ -18,7 +18,7 @@ const Talent = () => {
   const [filteredTalents, setFilteredTalents] = useState<any[]>([]);
 
   const [activePage, setActivePage] = useState(1);
-  const [perPage, setPerPage] = useState(9);
+  const [perPage, setPerPage] = useState(6);
 
   const isMobile = useMediaQuery('(max-width: 640px)');
   const isTablet = useMediaQuery('(max-width: 1024px)');
@@ -26,7 +26,7 @@ const Talent = () => {
   useEffect(() => {
     if (isMobile) setPerPage(4);
     else if (isTablet) setPerPage(6);
-    else setPerPage(9);
+    else setPerPage(8);
   }, [isMobile, isTablet]);
 
   useEffect(() => {
@@ -121,19 +121,54 @@ const Talent = () => {
 
       {/* Loading skeleton */}
       {loading ? (
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
           {Array.from({ length: perPage }).map((_, i) => (
-            <Skeleton key={i} height={180} radius="md" />
+          
+                  <div className="bg-mine-shaft-900 shadow-md p-4 w-full max-w-full sm:max-w-sm md:max-w-md lg:max-w-sm flex flex-col gap-4">
+                    <div className="flex justify-between items-center">
+                      <div className="flex gap-2 items-center">
+                        <Skeleton height={40} width={40} circle />
+                        <div className="space-y-2">
+                          <Skeleton height={16} width={120} />
+                          <Skeleton height={12} width={180} />
+                        </div>
+                      </div>
+                      <Skeleton height={24} width={24} />
+                    </div>
+                    <div className="flex gap-2">
+                      <Skeleton height={24} width={60} />
+                      <Skeleton height={24} width={60} />
+                      <Skeleton height={24} width={60} />
+                    </div>
+                    <div className="space-y-2">
+                      <Skeleton height={12} width="100%" />
+                      <Skeleton height={12} width="90%" />
+                      <Skeleton height={12} width="80%" />
+                    </div>
+                    <Divider size="xs" color="mine-shaft.7" />
+                    <div className="flex justify-between items-center">
+                      <Skeleton height={16} width={80} />
+                      <div className="flex items-center gap-1">
+                        <Skeleton height={20} width={20} circle />
+                        <Skeleton height={12} width={100} />
+                      </div>
+                    </div>
+                   <div className="flex items-center gap-1">
+                    <Skeleton height={36} width="50%" />
+                    <Skeleton height={36} width="50%" />
+                    </div>
+                  </div>
+                
           ))}
         </div>
       ) : (
         <>
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
             {paginatedTalents.length ? (
               paginatedTalents.map((talent: any, index: any) => (
                 <div
                   key={index}
-                  className="transition transform hover:-translate-y-1 hover:scale-105 duration-300"
+                  className="transition transform hover:-translate-y-1 hover:scale-101 duration-300"
                 >
                   <TalentsCards {...talent} />
                 </div>
@@ -143,6 +178,7 @@ const Talent = () => {
                 shadow="sm"
                 padding="lg"
                 radius="md"
+               
                 withBorder
                 className="flex flex-col items-center justify-center"
               >
@@ -162,7 +198,7 @@ const Talent = () => {
                 size={isMobile ? 'sm' : 'md'}
                 withEdges
                 siblings={isMobile ? 0 : 1}
-                color="blue"
+                 color='bright-sun.4'
               />
             </Box>
           )}

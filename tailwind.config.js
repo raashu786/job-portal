@@ -3,6 +3,7 @@ module.exports = {
   content: ["./src/**/*.{html,js,tsx}"],
   theme: {
     extend: {
+      
       borderWidth: {
         '05': '0.5px',
         '02': '0.2px',
@@ -70,6 +71,7 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-4px)' },
         },
+        
       },
     },
   },

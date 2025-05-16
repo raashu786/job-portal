@@ -41,6 +41,7 @@ const PostedJobDesc = (props: any) => {
   };
 
   useEffect(() => {
+    console.log("Applicants on props update:", props.applicants);
     handleTabChange("overview");
   }, [props]);
 
@@ -119,7 +120,7 @@ const PostedJobDesc = (props: any) => {
         )}
 
         {(tab === "applicants" || tab === "Invited" || tab === "offered" || tab === "rejected") && (
-          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
             {arr?.length ? (
               arr.map((talent: any, index: number) => (
                 <TalentsCards
@@ -137,7 +138,7 @@ const PostedJobDesc = (props: any) => {
                 padding="lg"
                 radius="md"
                 withBorder
-                className="flex flex-col items-center justify-center"
+                className="flex items-center justify-center"
               >
                 {tab === "applicants" && <IconBan size={40} stroke={1.5} color="darkgreen" />}
                 {tab === "Invited" && <IconUserOff size={40} stroke={1.5} color="gray" />}

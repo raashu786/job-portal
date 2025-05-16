@@ -5,7 +5,7 @@ import { getAllJobs } from '../Services/JobService';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetFilter } from '../Slices/FilterSlice';
 import { IconUserOff } from '@tabler/icons-react';
-import { Card, Text, Pagination, Box, Skeleton, } from '@mantine/core';
+import { Card, Text, Pagination, Box, Skeleton, Divider, } from '@mantine/core';
 import { resetSort } from '../Slices/SortSlice';
 import { useMediaQuery } from '@mantine/hooks';
 
@@ -110,8 +110,7 @@ const Jobs = () => {
   );
 
   return (
-    <div className="p-4">
-      {/* Header and Sort */}
+    <div className="p-2">
       <div className="flex flex-row items-center justify-between gap-4">
       <div className="text-xl sm-mx:text-sm font-semibold whitespace-nowrap">
           🔍 Recommended Jobs
@@ -120,14 +119,43 @@ const Jobs = () => {
           <Sort sort="job" />
         </div>
       </div>
-
-     
-
-      {/* Job Cards */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {loading ? (
           Array(jobsPerPage).fill(0).map((_, i) => (
-            <Skeleton key={i} height={200} radius="md" />
+             <div className="bg-mine-shaft-900 shadow-md p-4 w-full max-w-full sm:max-w-sm md:max-w-md lg:max-w-sm flex flex-col gap-4">
+                                <div className="flex justify-between items-center">
+                                  <div className="flex gap-2 items-center">
+                                    <Skeleton height={40} width={40} />
+                                    <div className="space-y-2">
+                                      <Skeleton height={16} width={120} />
+                                      <Skeleton height={12} width={180} />
+                                    </div>
+                                  </div>
+                                  <Skeleton height={24} width={24} />
+                                </div>
+                                <div className="flex gap-2">
+                                  <Skeleton height={24} width={60} />
+                                  <Skeleton height={24} width={60} />
+                                  <Skeleton height={24} width={60} />
+                                </div>
+                                <div className="space-y-2">
+                                  <Skeleton height={12} width="100%" />
+                                  <Skeleton height={12} width="90%" />
+                                  <Skeleton height={12} width="80%" />
+                                </div>
+                                <Divider size="xs" color="mine-shaft.7" />
+                                <div className="flex justify-between items-center">
+                                  <Skeleton height={16} width={80} />
+                                  <div className="flex items-center gap-1">
+                                    <Skeleton height={20} width={20} circle />
+                                    <Skeleton height={12} width={100} />
+                                  </div>
+                                </div>
+                               <div className="flex items-center gap-1">
+                                <Skeleton height={36} width="100%" />
+                                
+                                </div>
+                              </div>
           ))
         ) : paginatedJobs.length > 0 ? (
           paginatedJobs.map((job: any, index: number) => (
@@ -146,10 +174,8 @@ const Jobs = () => {
           </Card>
         )}
       </div>
-
-      {/* Pagination */}
       {!loading && filteredJobs.length > jobsPerPage && (
-        <Box className="mt-10 flex justify-center">
+        <Box className="mb-20 mt-10 flex justify-center">
           <Pagination
             value={activePage}
             onChange={setActivePage}

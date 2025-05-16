@@ -28,6 +28,7 @@ const PostJobs = () => {
   const navigate = useNavigate();
   const [editorData, setEditorData] = useState(content);
   const profile = useSelector((state: any) => state.profile);
+ 
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -224,7 +225,7 @@ const PostJobs = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
+          <div className="flex flex-wrap gap-4 mb-20 justify-center sm:justify-start">
             <Button color="bright-sun.4" onClick={handlePostJob} variant="light" className="px-6 py-2">
               Publish Job
             </Button>

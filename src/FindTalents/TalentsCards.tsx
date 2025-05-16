@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import {  IconCalendarMonth, IconFileText, IconHeart, IconLetterA, IconMail, IconMapPin, IconWorld } from '@tabler/icons-react';
+import {  IconCalendarMonth, IconEPassport, IconFileText, IconHeart, IconLetterA, IconMail, IconMapPin, IconWorld } from '@tabler/icons-react';
 import React, { useEffect, useRef, useState } from 'react';
 import { Text, Avatar, Button, Modal, Card, Group, Badge } from '@mantine/core';
 import { Link, useParams } from 'react-router-dom';
@@ -46,34 +46,34 @@ const TalentsCards = (props:any) => {
     });
   }
   return (
-    <div className='bg-mine-shaft-900 p-4 w-full sm:w-92 lg:w-92 flex flex-col gap-4 transition-all duration-300 ease-in-out transform hover:scale-[1.01] hover:shadow-lg hover:shadow-bright-sun-400/30 hover:translate-y-[-1px] cursor-pointer border border-mine-shaft-700 overflow-hidden'>
-      {/* Fixed Height Sections with Dividers */}
+    <div className='bg-mine-shaft-900 p-2 w-full sm:w-92  lg:w-92 flex flex-col gap-2  cursor-pointer border border-mine-shaft-700 overflow-hidden'>
+     
       
-      {/* Header Section */}
-      <div className='min-h-[20px] flex flex-col justify-center'>
+      <div className='min-h-[15px] flex flex-col justify-center shadow-md'>
         <motion.div 
           className='flex justify-between'
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className='flex gap-2 items-center'>
+          <div className='flex gap-1 items-center'>
             <motion.div 
-              className='p-2 bg-mine-shaft-800'
+              className='p-1 bg-mine-shaft-800'
               whileHover={{ scale: 1.05 }}
             >
-              <Avatar size="lg" src={profile?.picture ? `data:image/jpeg;base64,${profile?.picture}` : "/avatar-9.png"} alt="Company Logo" />
+              <Avatar size="md" radius="0" src={profile?.picture ? `data:image/jpeg;base64,${profile?.picture}` : "/avatar-9.png"} alt="Company Logo" />
             </motion.div>
             <div>
-              <div className='font-semibold text-lg text-white'>{props.name}</div>
+              <div className='font-semibold text-lg text-white'>{profile?.name}</div>
               <div className='text-xs text-mine-shaft-300'>{profile?.jobTitle} • {profile?.company}</div>
             </div>
           </div>
           <motion.div 
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.8 }}
           >
-            <IconHeart className='text-mine-shaft-300 cursor-pointer hover:text-bright-sun-400 transition-colors' />
+            <div className='shadow-md text-bright-sun-400 p-2 bg-mine-shaft-800 cursor-pointer hover:text-mine-shaft-300 transition-colors'><IconHeart size={20}  /></div>
+            
           </motion.div>
         </motion.div>
       </div>
@@ -81,15 +81,15 @@ const TalentsCards = (props:any) => {
       <div className='h-px bg-mine-shaft-700 w-full' />
 
       {/* Skills Section */}
-      <div className='min-h-[20px] flex flex-col justify-center'>
+      <div className='min-h-[10px] flex flex-col justify-center '>
         <motion.div 
-          className='flex flex-wrap gap-2 [&>div]:py-1 [&>div]:px-2 [&>div]:bg-mine-shaft-800 [&>div]:text-bright-sun-400 text-xs'
+          className=' justify-between [&>div]:shadow-lg py-1 px-2  text-xs text-bright-sun-400 flex flex-wrap gap-1 [&>div]:py-1 [&>div]:px-1 [&>div]:bg-mine-shaft-800 [&>div]:text-bright-sun-400 text-xs'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.3 }}
         >
           {profile.skills?.map((skill: string, index: number) => 
-            index < 4 && (
+            index < 3 && (
               <motion.div 
                 key={index}
                 whileHover={{ scale: 1.05, backgroundColor: '#3b3b3b' }}
@@ -135,9 +135,16 @@ const TalentsCards = (props:any) => {
             </>
           ) : (
             <>
-              <div className='text-mine-shaft-300 flex gap-2'>EXP:<Badge  size="lg" circle>{props.totalExp?props.totalExp:1}</Badge>  Years</div>
+              <div className='flex gap-1 text-xs text-mine-shaft-400 items-center'> <div  className="text-bright-sun-400 p-1 bg-mine-shaft-800">
+                  <IconEPassport size={20} />
+
+                </div>Experiance<div className="text-bright-sun-400 p-2 bg-mine-shaft-800">{props.totalExp?props.totalExp:1}</div></div>
               <div className='flex gap-1 text-xs text-mine-shaft-400 items-center'>
-                <IconMapPin className='h-5 w-5' stroke={1.5} />
+                <div  className="text-bright-sun-400 p-1 bg-mine-shaft-800">
+                  <IconMapPin size={20} />
+
+                </div>
+                
                 {profile.location}
               </div>
             </>
