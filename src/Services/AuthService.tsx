@@ -2,7 +2,8 @@ import axios from "axios";
 import { create } from "zustand";
 import { Client } from "@stomp/stompjs";
 
-const base_url = "http://localhost:8080";
+//const base_url = "http://localhost:8080";
+const base_url = "https://job-portal-backend-smwt.onrender.com";
 const axiosInstance = axios.create({
   baseURL: base_url,
   // headers: {
