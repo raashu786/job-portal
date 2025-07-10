@@ -161,7 +161,8 @@ setTypingStatus: (userId: number, typing: boolean) =>
     const userId = user?.profileId;
     if (!userId) return;
 
-    const socket = new SockJS(`http://localhost:8080/ws?userId=${userId}`);
+    //const socket = new SockJS(`http://localhost:8080/ws?userId=${userId}`);
+    const socket = new SockJS(`https://job-portal-backend-smwt.onrender.com/ws?userId=${userId}`);
     const client = new Client({
       webSocketFactory: () => socket,
       debug: (str) => console.log("🧩 OnlineUsers Debug:", str),
