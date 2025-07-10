@@ -331,7 +331,9 @@ getUsers: async () => {
     console.log("🚀 Subscribing to messages for user", userId);
     set({ connectionStatus: 'connecting' });
 
-    const socket = new SockJS(`http://localhost:8080/ws?userId=${userId}`);
+     //const socket = new SockJS(`http://localhost:8080/ws?userId=${userId}`);
+     const socket = new SockJS(`https://job-portal-backend-smwt.onrender.com/ws?userId=${userId}`);
+
     const client = new Client({
       webSocketFactory: () => socket,
       reconnectDelay: 5000,
